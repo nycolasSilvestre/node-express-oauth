@@ -50,9 +50,13 @@ app.use(timeout)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-/*
-Your code here
-*/
+app.get("/authorize",(req,res) =>
+{
+	var client_id = req.query.client_id;
+
+	res.end();
+
+})
 
 const server = app.listen(config.port, "localhost", function () {
 	var host = server.address().address
