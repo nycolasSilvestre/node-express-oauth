@@ -53,10 +53,10 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.get("/authorize",(req,res) =>
 {
 	var client_id = req.query.client_id;
-	if(clients.contains(client_id))
+	if(clients[client_id] != null)
 		res.end();
 	else{
-		res.status(401);
+		res.status(401).send("Error: client not authorized");
 	}
 
 
